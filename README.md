@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @shashishekar
-- 👀 I’m interested in Development
-- 🌱 I’m currently learning python, Mysql, Data Structures, Django
-- 💞️ I’m looking to collaborate on ...
+- 👀 I’m interested in Python world
+- 🌱 I’m currently learning Python stuff
+- 💞️ I’m looking to collaborate on python projects
 - 📫 How to reach me ...rshashishekargowda@gmail.com
 
 <!---
