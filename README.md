@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @shashishekar
 - 👀 I’m interested in Python world
-- 🌱 I’m currently learning Python stuff
+- 🌱 I’m Data Enthusiast
 - 💞️ I’m looking to collaborate on python projects
 - 📫 How to reach me ...rshashishekargowda@gmail.com
 
