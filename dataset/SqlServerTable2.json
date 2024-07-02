@@ -1,0 +1,46 @@
+{
+	"name": "SqlServerTable2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_onprems_sqlserver",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "optname",
+				"type": "nvarchar"
+			},
+			{
+				"name": "value",
+				"type": "bit"
+			},
+			{
+				"name": "major_version",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "minor_version",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "revision",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "install_failures",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "MSreplication_options"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

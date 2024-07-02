@@ -1,0 +1,9 @@
+{
+	"name": "efn-may-24-m-adf",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4e590dbe-5f29-461a-b8b4-59c6c05b61e3",
+		"tenantId": "0ac6ca9a-242b-45b4-a76e-595a2ada0915"
+	}
+}

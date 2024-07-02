@@ -1,0 +1,139 @@
+{
+	"name": "HW_2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set y_squared",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set y",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "y_squared",
+					"value": {
+						"value": "@mul(variables('y'), variables('y'))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set two_y_x",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set x",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Set y",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "two_y_x",
+					"value": {
+						"value": "@mul(mul(2, variables('y')), variables('x'))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set z",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set two_y_x",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Set y_squared",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "z",
+					"value": {
+						"value": "@sub(add(variables('y_squared'), variables('two_y_x')), variables('x'))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set x",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "x",
+					"value": 2
+				}
+			},
+			{
+				"name": "Set y",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "y",
+					"value": 3
+				}
+			}
+		],
+		"variables": {
+			"x": {
+				"type": "Integer"
+			},
+			"y": {
+				"type": "Integer"
+			},
+			"z": {
+				"type": "Integer"
+			},
+			"y_squared": {
+				"type": "Integer"
+			},
+			"two_y_x": {
+				"type": "Integer"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-06-08T13:56:46Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

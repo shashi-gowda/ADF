@@ -1,0 +1,45 @@
+{
+	"name": "ds_blob_source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_efnmay24mblobstorage",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Filename_blobSource": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().Filename_blobSource",
+					"type": "Expression"
+				},
+				"container": "sourcefiles"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Train No",
+				"type": "String"
+			},
+			{
+				"name": "speed",
+				"type": "String"
+			},
+			{
+				"name": "city",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

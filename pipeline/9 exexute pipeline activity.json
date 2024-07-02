@@ -1,0 +1,45 @@
+{
+	"name": "9 exexute pipeline activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline without parameters",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "8 Pipeline Without Parameters",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Execute Pipeline with parameters",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "8_1 Pipeline With Parameters",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"Filename": "customer.csv"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-06-14T14:46:46Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

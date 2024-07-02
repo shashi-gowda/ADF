@@ -1,0 +1,108 @@
+{
+	"name": "15 Migrate list of tables into csv - solution2",
+	"properties": {
+		"activities": [
+			{
+				"name": "db1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('TableList')",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Copy data1",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "SqlServerSource",
+									"sqlReaderQuery": {
+										"value": "@concat('select ', item().SourceColumn, ' from ', item().SourceSchema, '.', item().SourceTableName)",
+										"type": "Expression"
+									},
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobStorageWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "ds_efnmay24m_sol2",
+									"type": "DatasetReference"
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "ds_blobmay24m_rawlayer",
+									"type": "DatasetReference",
+									"parameters": {
+										"FileName": {
+											"value": "@item().SourceTableName",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"TableList": {
+				"type": "Array",
+				"defaultValue": [
+					{
+						"SourceSchema": "dbo",
+						"SourceTableName": "EMP",
+						"SourceColumn": "EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO"
+					},
+					{
+						"SourceSchema": "SalesLT",
+						"SourceTableName": "Product",
+						"SourceColumn": "ProductID, Name, ProductNumber, Color, StandardCost, ListPrice, Size, Weight, ProductCategoryID, ProductModelID, SellStartDate, SellEndDate, DiscontinuedDate, ThumbNailPhoto, ThumbnailPhotoFileName, rowguid, ModifiedDate"
+					},
+					{
+						"SourceSchema": "dbo",
+						"SourceTableName": "DEPT",
+						"SourceColumn": "DEPTNO, DNAME, LOC"
+					}
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-06-25T05:35:59Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
