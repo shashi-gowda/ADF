@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "efn-may-24-m-adf"
+		},
+		"ls_efnmay24mblob2_connectionString": {
+			"value": ""
+		},
+		"ls_efnmay24mblobstorage_connectionString": {
+			"value": ""
+		},
+		"ls_efnmay24mrgsqlserver_connectionString": {
+			"value": ""
+		},
+		"ls_onprems_sqlserver_connectionString": {
+			"value": "Integrated Security=True;Data Source=DESKTOP-QBLMT5V\\SQLEXPRESS;Initial Catalog=master"
+		},
+		"ls_onprems_sqlserver_password": {
+			"value": ""
+		},
+		"ls_onprems_sqlserver_properties_typeProperties_userName": {
+			"value": "DESKTOP-QBLMT5V\\ADMIN"
+		}
+	}
+}
