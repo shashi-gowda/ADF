@@ -1,0 +1,35 @@
+{
+	"name": "17 Web Activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Interated with Logic app to send mail",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://prod2-01.centralindia.logic.azure.com:443/workflows/43d1970a6d374cd08fbd4c6014e6d534/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=tYyPyNgj6f0VVW-PpvNAwKGJx1rz2ex8vRHE6zlnds4",
+					"body": {
+						"To": [
+							"manjunathchaithra987@gmail.com",
+							"rshashishekargowda@gmail.com"
+						],
+						"Subject": "subject of email",
+						"Body": "This email is from web activity of adf"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-07-03T13:06:02Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
