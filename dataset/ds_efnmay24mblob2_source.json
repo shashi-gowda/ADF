@@ -2,7 +2,7 @@
 	"name": "ds_efnmay24mblob2_source",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_efnmay24mblob2",
+			"referenceName": "ls_efnmay24mblobstorage2",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],

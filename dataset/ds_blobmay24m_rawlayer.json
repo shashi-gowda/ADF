@@ -2,7 +2,7 @@
 	"name": "ds_blobmay24m_rawlayer",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_efnmay24mblobstorage",
+			"referenceName": "ls_efnmay24mblobstorage1",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
