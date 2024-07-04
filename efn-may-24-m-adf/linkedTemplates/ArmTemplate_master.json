@@ -15,6 +15,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_efnmay24mblobstorage'"
 		},
+		"ls_efnmay24mblobstorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_efnmay24mblobstorage1'"
+		},
+		"ls_efnmay24mblobstorage2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_efnmay24mblobstorage2'"
+		},
 		"ls_efnmay24mrgsqlserver_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_efnmay24mrgsqlserver'"
@@ -65,6 +73,12 @@
 					"ls_efnmay24mblobstorage_connectionString": {
 						"value": "[parameters('ls_efnmay24mblobstorage_connectionString')]"
 					},
+					"ls_efnmay24mblobstorage1_connectionString": {
+						"value": "[parameters('ls_efnmay24mblobstorage1_connectionString')]"
+					},
+					"ls_efnmay24mblobstorage2_connectionString": {
+						"value": "[parameters('ls_efnmay24mblobstorage2_connectionString')]"
+					},
 					"ls_efnmay24mrgsqlserver_connectionString": {
 						"value": "[parameters('ls_efnmay24mrgsqlserver_connectionString')]"
 					}
@@ -99,6 +113,26 @@
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'efn-may-24-m-adf_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "efn-may-24-m-adf_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'efn-may-24-m-adf_ArmTemplate_1')]"
 			]
 		}
 	]

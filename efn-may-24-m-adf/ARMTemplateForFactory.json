@@ -15,6 +15,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_efnmay24mblobstorage'"
 		},
+		"ls_efnmay24mblobstorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_efnmay24mblobstorage1'"
+		},
+		"ls_efnmay24mblobstorage2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_efnmay24mblobstorage2'"
+		},
 		"ls_efnmay24mrgsqlserver_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_efnmay24mrgsqlserver'"
@@ -715,6 +723,47 @@
 				"[concat(variables('factoryId'), '/datasets/DelimitedText1')]",
 				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mrgsqlserver')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/17 Web Activity')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Interated with Logic app to send mail",
+						"type": "WebActivity",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"method": "POST",
+							"headers": {},
+							"url": "https://prod2-01.centralindia.logic.azure.com:443/workflows/43d1970a6d374cd08fbd4c6014e6d534/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=tYyPyNgj6f0VVW-PpvNAwKGJx1rz2ex8vRHE6zlnds4",
+							"body": {
+								"To": [
+									"manjunathchaithra987@gmail.com",
+									"rshashishekargowda@gmail.com"
+								],
+								"Subject": "subject of email",
+								"Body": "This email is from web activity of adf"
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2024-07-03T13:06:02Z"
+			},
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/2 variable and set variable')]",
@@ -1842,7 +1891,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "ls_efnmay24mblobstorage",
+					"referenceName": "ls_efnmay24mblobstorage1",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -1861,7 +1910,7 @@
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mblobstorage')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mblobstorage1')]"
 			]
 		},
 		{
@@ -1938,7 +1987,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "ls_efnmay24mblob2",
+					"referenceName": "ls_efnmay24mblobstorage2",
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
@@ -1970,7 +2019,7 @@
 				]
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mblob2')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mblobstorage2')]"
 			]
 		},
 		{
@@ -1979,7 +2028,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "ls_efnmay24mblobstorage",
+					"referenceName": "ls_efnmay24mblobstorage1",
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
@@ -2019,7 +2068,7 @@
 				]
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mblobstorage')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mblobstorage1')]"
 			]
 		},
 		{
@@ -2028,7 +2077,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "ls_efnmay24mblobstorage",
+					"referenceName": "ls_efnmay24mblobstorage1",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -2060,7 +2109,7 @@
 				]
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mblobstorage')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mblobstorage1')]"
 			]
 		},
 		{
@@ -2069,7 +2118,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "ls_efnmay24mblobstorage",
+					"referenceName": "ls_efnmay24mblobstorage1",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -2088,7 +2137,7 @@
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mblobstorage')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mblobstorage1')]"
 			]
 		},
 		{
@@ -2097,7 +2146,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "ls_efnmay24mblobstorage",
+					"referenceName": "ls_efnmay24mblobstorage1",
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
@@ -2185,7 +2234,7 @@
 				]
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mblobstorage')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mblobstorage1')]"
 			]
 		},
 		{
@@ -2194,7 +2243,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "ls_efnmay24mblobstorage",
+					"referenceName": "ls_efnmay24mblobstorage1",
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
@@ -2225,7 +2274,7 @@
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mblobstorage')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mblobstorage1')]"
 			]
 		},
 		{
@@ -2287,7 +2336,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "ls_efnmay24mblob2",
+					"referenceName": "ls_efnmay24mblobstorage2",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -2310,7 +2359,7 @@
 				]
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mblob2')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mblobstorage2')]"
 			]
 		},
 		{
@@ -2319,7 +2368,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "ls_efnmay24mblobstorage",
+					"referenceName": "ls_efnmay24mblobstorage1",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -2337,7 +2386,7 @@
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mblobstorage')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_efnmay24mblobstorage1')]"
 			]
 		},
 		{
@@ -2447,6 +2496,32 @@
 				"type": "AzureBlobStorage",
 				"typeProperties": {
 					"connectionString": "[parameters('ls_efnmay24mblobstorage_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_efnmay24mblobstorage1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('ls_efnmay24mblobstorage1_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_efnmay24mblobstorage2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('ls_efnmay24mblobstorage2_connectionString')]"
 				}
 			},
 			"dependsOn": []

@@ -11,6 +11,12 @@
 		"ls_efnmay24mblobstorage_connectionString": {
 			"value": ""
 		},
+		"ls_efnmay24mblobstorage1_connectionString": {
+			"value": ""
+		},
+		"ls_efnmay24mblobstorage2_connectionString": {
+			"value": ""
+		},
 		"ls_efnmay24mrgsqlserver_connectionString": {
 			"value": ""
 		},
