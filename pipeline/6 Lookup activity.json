@@ -52,7 +52,7 @@
 				"typeProperties": {
 					"variableName": "CustomerID",
 					"value": {
-						"value": "@activity('Lookup1').output.value[2].CustomerID",
+						"value": "@activity('Lookup1').output.value[2].MGR",
 						"type": "Expression"
 					}
 				}
