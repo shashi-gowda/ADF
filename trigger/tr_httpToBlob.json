@@ -1,0 +1,28 @@
+{
+	"name": "tr_httpToBlob",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "httpToBlobCopydata",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"relativeURL": "cloudboxacademy/covid19/main/ecdc_data/hospital_admissions.csv",
+					"fileName": "hospital_admissions.csv"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2024-08-21T14:33:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}

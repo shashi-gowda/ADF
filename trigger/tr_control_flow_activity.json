@@ -1,0 +1,24 @@
+{
+	"name": "tr_control_flow_activity",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "control flow activities",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/basecontainer/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/c62851ea-bb18-4e9d-b050-41a7367d8f8f/resourceGroups/EFN-rg/providers/Microsoft.Storage/storageAccounts/efnblob1",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
