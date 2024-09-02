@@ -1,0 +1,9 @@
+{
+	"name": "reference-ADF2",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "345888c5-e23e-444f-a493-32a65b6e745d",
+		"tenantId": "4afe6d55-e657-4814-8bfd-ca32c275a67b"
+	}
+}
